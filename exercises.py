@@ -73,7 +73,7 @@ def check_voting_eligibility():
     # Determine if the user is eligible to vote. Set a variable for the voting age.
     voting_age = 18
      # input() gets text from user, int() converts it to a number - all in one line
-    age_input = int(input("Please enter your age: "))
+    age = int(input("Please enter your age: "))
     
     if age < 0:
         print("Invalid age. Age cannot be negative.")
@@ -106,7 +106,7 @@ check_voting_eligibility()
 
 def calculate_dog_years():
     # Prompt the user to enter a dog's age: "Input a dog's age: "
-    dog_age_input = int(input("input a dog's age: "))
+    dog_age = int(input("input a dog's age: "))
 # Convert the string input to an integer using int()
    
     # Apply conditional logic to perform the correct age calculation
@@ -208,3 +208,54 @@ def determine_season():
 
 # Call the function
 determine_season()
+
+# Exercise 6: Number Guessing Game
+#
+# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+#
+# Requirements:
+# - Set a fixed number as the target for guessing (e.g., 42).
+# - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# - Allow the user to guess up to five times.
+# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+#   - "Guess is too low" or "Guess is too high."
+#   - "Last chance!" when they are on their fifth guess.
+# - Print "Congratulations, you guessed correctly!" if they guess the number.
+# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+#
+# Hints:
+# - Use a for loop with a range to limit guesses to five.
+# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+
+def guess_number():
+    target_number = 84
+    max_guesses = 7
+    # Use a for loop with a range to limit guesses
+    # range(1, max_guesses + 1) creates: 1, 2, 3, 4, 5, 6, 7
+    for attempt in range(1, max_guesses + 1):
+        #attempt is a VARIABLE that holds the current loop number
+        guess = int(input("Guess a number between 1 and 100: "))
+        #IF guess equals target_number
+        if guess == target_number:
+            # PRINT congratulations message
+            print("Congratulations, you guessed correctly!")
+            # Dude won - EXIT function
+            return
+        
+        #IF attempt is NOT the last attempt
+        #Use logical AND to check conditions
+        if attempt < max_guesses and guess < target_number:
+            print('Guess is too low')
+        elif attempt < max_guesses and guess > target_number:
+            print("Guess is too high")
+        if attempt == max_guesses:
+            print("Last chance!")
+    
+    print("Sorry, you failed to guess the number in 7 attempts")
+
+
+
+
+# Call the function
+guess_number()
+
